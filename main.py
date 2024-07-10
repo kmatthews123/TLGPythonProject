@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 import os
 
-#used for createing boot.py file for joystick.xl
+#used for createing simple boot.py file for joystick.xl
 def createBoot(axvarboot,buttonvarboot, hatsvarboot):
     with open("template/boot.py", "r") as boottemplate, open("output/boot.py", "x" ) as bootnew:
-        varaxes = "\naxesvar = " + str(axvarboot)
+        varaxes = "axesvar = " + str(axvarboot)
         varbuttons = "\nbuttonsvar = " + str(buttonvarboot)
         varhats= "\nhatsvar = " + str(hatsvarboot)
+        #used to write multiple lines from a list
         bootnew.writelines([varaxes, varbuttons, varhats])
 
         for line in boottemplate:    
