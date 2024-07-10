@@ -41,38 +41,30 @@ def createCode(axvarcode, buttonvarcode, hatsvarcode):
         #will need to setup count for this one and remove trailing "," for last line
 
         for i in range(hatsvarcode):
-                #print(i)
-                #print(hatsvarcode)
-                #this loop itterates though the nubmer of hats and since it is the last set of things to be decared it will write the last item without the trailing "," to finish the tuple
-                if i != hatsvarcode -1 :
-                    #initalize string for hat items
-                    hatinput = "    Hat("
-                    #pulls in inputs for hat directions
-                    hatup = "up=board.D" + input("please enter Digital pin for up direction: ") + ", "
-                    hatdown = "down=board.D" + input("please enter Digital pin for the down direction: ") + ", "
-                    hatleft = "left=board.D" + input("please enter Digital pin for left directon: ") + ", "
-                    hatright = "right=board.D" + input("please enter Digital pin for the right direction: ") + "),\n"
-                    hatinput += hatup + hatdown + hatleft + hatright
-                    # codenew.write(hatinput)
-                else:
-                    #initalize string for hat items
-                    hatinput = "    Hat("
-                    #pulls in inputs for hat directions
-                    hatup = "up=board.D" + input("please enter Digital pin for up direction: ") + ", "
-                    hatdown = "down=board.D" + input("please enter Digital pin for the down direction: ") + ", "
-                    hatleft = "left=board.D" + input("please enter Digital pin for left directon: ") + ", "
-                    hatright = "right=board.D" + input("please enter Digital pin for the right direction: ") + ")\n"
-                    hatinput += hatup + hatdown + hatleft + hatright
-                    # codenew.write(hatinput)
-                codenew.write(hatinput)
+            #print(i)
+            #print(hatsvarcode)
+            #this loop itterates though the nubmer of hats and since it is the last set of things to be decared it will write the last item without the trailing "," to finish the tuple
+                #initalize string for hat items
+            hatinput = "    Hat("
+            #pulls in inputs for hat directions except for last value
+            hatup = "up=board.D" + input("please enter Digital pin for up direction: ") + ", "
+            hatdown = "down=board.D" + input("please enter Digital pin for the down direction: ") + ", "
+            hatleft = "left=board.D" + input("please enter Digital pin for left directon: ") + ", "
+            #determine if last hat, if it is, drop the trailing ","
+            hatright = "right=board.D" + input("please enter Digital pin for the right direction: ") + "),\n"
+            hatinput += hatup + hatdown + hatleft + hatright
+            codenew.write(hatinput)
+   
+   #strip the last 2 characters off of the end of the input delceartion, this takes care of getting rid of the new line and the comma
+    with open("output/code.py", 'r') as file:
+        data = file.read()
+    data = data[:-2]
+    with open("output/code.py", "w" ) as file:
+        file.write(data)
 
 
-            
-        #print(inputs)
-
-        
-        #codenew.write(inputs[:-2])
-        codenew.write(")\n")
+    with open("output/code.py", "a") as codenew:
+        codenew.write("\n)\n")
         codenew.write("while True:\n")
         codenew.write("    js.update()\n")
 
