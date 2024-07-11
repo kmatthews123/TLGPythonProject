@@ -13,37 +13,6 @@ def createBoot(axvarboot,buttonvarboot, hatsvarboot):
         for line in boottemplate:    
             bootnew.write(line)
         
-'''
-#need to ask user which digital and analog pins will be used for inputs
-def createCode(axvarcode, buttonvarcode, hatsvarcode, defaultvalues):
-    with open("template/code.py", "r") as codetemplate, open("output/code.py", "a") as codenew:
-        for line in codetemplate:
-            codenew.write(line)
-
-        codenew.write("js = Joystick()\n")
-        #inputs = ""
-        codenew.write("js.add_input( \n")
-
-        if defaultvalues == "yes":
-            customCode(axvarcode, buttonvarcode, hatsvarcode)
-        else:
-            basicCode(axvarcode, buttonvarcode, hatsvarcode)
-        
-   #strip the last 2 characters off of the end of the input delceartion, this takes care of getting rid of the new line and the comma
-    with open("output/code.py", 'r') as file:
-        data = file.read()
-    data = data[:-2]
-    with open("output/code.py", "w" ) as file:
-        file.write(data)
-
-
-    with open("output/code.py", "a") as codenew:
-        codenew.write("\n)\n")
-        codenew.write("while True:\n")
-        codenew.write("    js.update()\n")
-
-        #print(axvarcode, buttonvarcode, hatsvarcode)
-'''
 
 def customCode(one,two,three):
     with open("template/code.py", "r") as codetemplate, open("output/code.py", "a") as codenew:
