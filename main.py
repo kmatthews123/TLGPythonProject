@@ -15,7 +15,7 @@ def createBoot(axvarboot,buttonvarboot, hatsvarboot):
         
 
 def customCode(one,two,three):
-    with open("template/code.py", "r") as codetemplate, open("output/code.py", "a") as codenew:
+    with open("template/code.py", "r") as codetemplate, open("output/main.py", "a") as codenew:
         for line in codetemplate:
             codenew.write(line)
 
@@ -57,14 +57,14 @@ def customCode(one,two,three):
             codenew.write(hatinput)
 
    #strip the last 2 characters off of the end of the input delceartion, this takes care of getting rid of the new line and the comma
-    with open("output/code.py", 'r') as file:
+    with open("output/main.py", 'r') as file:
         data = file.read()
     data = data[:-2]
-    with open("output/code.py", "w" ) as file:
+    with open("output/main.py", "w" ) as file:
         file.write(data)
 
 
-    with open("output/code.py", "a") as codenew:
+    with open("output/main.py", "a") as codenew:
         codenew.write("\n)\n")
         codenew.write("while True:\n")
         codenew.write("    js.update()\n")
@@ -73,7 +73,7 @@ def customCode(one,two,three):
 
 
 def basicCode(one, two, three):
-    with open("template/code.py", "r") as codetemplate, open("output/code.py", "a") as codenew:
+    with open("template/code.py", "r") as codetemplate, open("output/main.py", "a") as codenew:
         for line in codetemplate:
             codenew.write(line)
 
@@ -117,14 +117,14 @@ def basicCode(one, two, three):
             codenew.write(hatinput)
    
    #strip the last 2 characters off of the end of the input delceartion, this takes care of getting rid of the new line and the comma
-    with open("output/code.py", 'r') as file:
+    with open("output/main.py", 'r') as file:
         data = file.read()
     data = data[:-2]
-    with open("output/code.py", "w" ) as file:
+    with open("output/main.py", "w" ) as file:
         file.write(data)
 
 
-    with open("output/code.py", "a") as codenew:
+    with open("output/main.py", "a") as codenew:
         codenew.write("\n)\n")
         codenew.write("while True:\n")
         codenew.write("    js.update()\n")
@@ -137,8 +137,8 @@ def main():
     #used to overwrite boot.py if it already exists
     while os.path.exists("output/boot.py"):
         os.remove("output/boot.py")
-    while os.path.exists("output/code.py"):
-        os.remove("output/code.py")
+    while os.path.exists("output/main.py"):
+        os.remove("output/main.py")
 
     #pull down user input on how many of each input will be used
     axinput = int(input("input a number of axes between 0 and 8: "))
@@ -156,9 +156,6 @@ def main():
         customCode(axinput, buttoninput, hatinput)
     else:
         basicCode(axinput, buttoninput, hatinput)
-
-
-
 
 
 
