@@ -44,7 +44,6 @@ def customCode(one,two,three):
         for i in range(three):
             #print(i)
             #print(hatsvarcode)
-            #this loop itterates though the nubmer of hats and since it is the last set of things to be decared it will write the last item without the trailing "," to finish the tuple
             #initalize string for hat items
             hatinput = "    Hat("
             #pulls in inputs for hat directions except for last value
@@ -100,7 +99,7 @@ def basicCode(one, two, three):
         for i in range(three):
             #print(i)
             #print(hatsvarcode)
-            #this loop itterates though the nubmer of hats and since it is the last set of things to be decared it will write the last item without the trailing "," to finish the tuple
+            #this loop itterates though the nubmer of hats
             #initalize string for hat items
             hatinput = "    Hat("
             #pulls in inputs for hat directions except for last value
@@ -116,7 +115,8 @@ def basicCode(one, two, three):
             hatinput += hatup + hatdown + hatleft + hatright
             codenew.write(hatinput)
    
-   #strip the last 2 characters off of the end of the input delceartion, this takes care of getting rid of the new line and the comma
+   #strip the last 2 characters off of the end of the input delceartion
+   # this takes care of getting rid of the new line and the comma
     with open("output/main.py", 'r') as file:
         data = file.read()
     data = data[:-2]
