@@ -129,7 +129,7 @@ def basicCode(one, two, three):
         codenew.write("while True:\n")
         codenew.write("    js.update()\n")
 
-        #print(axvarcode, buttonvarcode, hatsvarcode)
+        #logger.info(axvarcode, buttonvarcode, hatsvarcode)
 
 
 

@@ -166,3 +166,4 @@ cython_debug/
 output/*
 
 !output/.gitkeep
+.~lock.Presentation.odp#
